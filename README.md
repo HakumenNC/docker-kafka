@@ -1,7 +1,7 @@
 # docker-kafka
 
 * [Description](#speech_balloon-description)
-* [Pré-requis](#books-prerequisites)
+* [Pré-requis](#books-pré-requis)
 * [Utilisation](#rocket-utilisation)
 * [Commandes utiles](#rocket-commandes-utiles)
   * [Lister les topics](#lister-les-topics)
@@ -21,6 +21,8 @@ Run Kafka on Docker
 
 ## :rocket: Utilisation
 
+### Lancement
+
 Se positionner dans l'un des répertoires sous le dossier `docker-compose` et lancer la commande :
 
 ```console
@@ -37,6 +39,24 @@ $ docker-compose --project-name kafka -f kafka.yml ps
 -----------------------------------------------------------------------------------------
 kafka       start-kafka.sh                   Up      0.0.0.0:9092->9092/tcp
 zookeeper   /bin/sh -c /usr/sbin/sshd  ...   Up      2181/tcp, 22/tcp, 2888/tcp, 3888/tcp
+```
+
+### Arrêt
+
+```console
+$ docker-compose --project-name kafka -f kafka.yml stop
+Stopping kafka     ... done
+Stopping zookeeper ... done
+```
+
+### Suppression
+
+```console
+$ docker-compose --project-name kafka -f kafka.yml rm
+Going to remove kafka, zookeeper
+Are you sure? [yN] y
+Removing kafka     ... done
+Removing zookeeper ... done
 ```
 
 ## :gear: Commandes utiles
@@ -111,3 +131,5 @@ confluent
 * [Overview of Docker Compose](https://docs.docker.com/compose)
 * [Everything you need to know about Kafka in 10 minutes](https://kafka.apache.org/intro)
 * [Confluent Documentation](https://docs.confluent.io/home/overview.html)
+* [wurstmeister/kafka](https://hub.docker.com/r/wurstmeister/kafka "hub.docker.com")
+* [wurstmeister/kafka-docker](https://github.com/wurstmeister/kafka-docker "github.com")
