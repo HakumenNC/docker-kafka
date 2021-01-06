@@ -66,19 +66,13 @@ Removing zookeeper ... done
 
 ### Lister les topics
 
-wurstmeister
-
 ```bash
-docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-topics.sh --zookeeper zookeeper:2181 --list
+docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-topics.sh \
+  --zookeeper zookeeper:2181 \
+  --list
 ```
 
-confluent
-
-(A venir)
-
 ### Ecrire dans un topic
-
-wurstmeister
 
 Entrer dans le container `kafka`
 
@@ -89,7 +83,11 @@ docker exec -ti kafka bash
 Créer le producer
 
 ```bash
-kafka-console-producer.sh --broker-list kafka:9092 --topic demo.message --property "parse.key=true" --property "key.separator=|"
+kafka-console-producer.sh \
+  --broker-list kafka:9092 \
+  --topic demo.message \
+  --property "parse.key=true" \
+  --property "key.separator=|"
 ```
 
 Dans l'exemple ci-dessus, les on écrit la clé et sa valeur séparées par le caractère `|` :
@@ -100,33 +98,23 @@ Dans l'exemple ci-dessus, les on écrit la clé et sa valeur séparées par le c
 998877|{"phoneNumber":"998877", "firstName":"Jean", "lastName":"Soudajman"}
 ```
 
-confluent
-
-(A venir)
-
 ### Lire un topic
 
-wurstmeister
-
 ```bash
-docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic demo.message --from-beginning
+docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-console-consumer.sh \
+  --bootstrap-server kafka:9092 \
+  --topic demo.message \
+  --from-beginning
 ```
-
-confluent
-
-(A venir)
 
 ### Supprimer un topic
 
-wurstmeister
-
 ```bash
-docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-topics.sh --zookeeper zookeeper:2181 --delete --topic demo.message
+docker exec kafka sh opt/kafka_2.11-2.0.0/bin/kafka-topics.sh \
+  --zookeeper zookeeper:2181 \
+  --delete \
+  --topic demo.message
 ```
-
-confluent
-
-(A venir)
 
 ## :link: Liens utiles
 
